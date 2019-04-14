@@ -1,11 +1,14 @@
 /*
- * Dalton Senseman - This is the character class for the game in here will contain all of the code
- * every player can know , do, and hold. Things such as attacking, skills, and movement will be
- * recorded and used in here for the driver to use.
+ * Character class holds all the information every character should have regardless if it is player
+ * controlled
+ * 
+ * @author Dalton Senseman
+ * 
+ * @since 2019-04-12
  */
 
 public abstract class Character {
-  DiceRoller Roll = new DiceRoller();
+  RNGSystem Roll = new RNGSystem();
   // fields
   private String firstName;
   private String lastName;
@@ -15,7 +18,7 @@ public abstract class Character {
   private int height;
   private int weight;
   private int attack;
-  
+
   private double coinPurse;
 
   // constructor
@@ -26,6 +29,10 @@ public abstract class Character {
     this.age = age;
     this.height = height;
     this.weight = weight;
+  }
+
+  public Character() {
+
   }
 
   // methods
@@ -72,30 +79,30 @@ public abstract class Character {
   public int getWeight() {
     return weight;
   }
-  
+
   public void setCoinPurse(double coins) {
     coinPurse += coins;
   }
-  
+
   public double getCoinPurse() {
     return coinPurse;
   }
 
   public void setAttack(int hitCount, int dammageCount) {
-    DiceRoller.setRoll(1, 20);
-    int baseRoll = DiceRoller.getRoll();
+    RNGSystem.setRoll(1, 20);
+    int baseRoll = RNGSystem.getRoll();
     if (baseRoll > 0 && baseRoll < 20) {
-      DiceRoller.setRoll(hitCount, dammageCount);
-      attack = DiceRoller.getRoll();
+      RNGSystem.setRoll(hitCount, dammageCount);
+      attack = RNGSystem.getRoll();
       System.out.println("You hit for: " + getAttack());
     } else if (baseRoll == 20) {
       System.out.println("Critical hit!");
-      DiceRoller.setRoll(hitCount, dammageCount);
+      RNGSystem.setRoll(hitCount, dammageCount);
       System.out.println("You hit for: " + (int) Math.pow(getAttack(), 2.5));
-      /*I have the power going to the 2.5 so to make sure the number is a int I 
-       * used casting to force it back into a int truncating the remaining decimal so HP is 
-       * decreased in whole numbers while having the possibility of extra damage to be added to the
-       *  damage roll
+      /*
+       * I have the power going to the 2.5 so to make sure the number is a int I used casting to
+       * force it back into a int truncating the remaining decimal so HP is decreased in whole
+       * numbers while having the possibility of extra damage to be added to the damage roll
        */
     } else
       System.out.println("You have Missed!");;
