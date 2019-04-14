@@ -129,6 +129,7 @@ PSI 3
     
     Develop code that makes use of polymorphism
     
+    
     Use super and this to access objects and constructors
     PlayerCharacter.java \ lines 4-5
     
@@ -143,15 +144,19 @@ PSI 3
     JavaArrayDemos.java \ lines 4-14
     
     Search an array and identify the index where a value was found.
+    JavaArraysDemo \ lines 30-34
     
     Create and use the enhanced for loop
     JavaArrayDemos.java \ lines 21, 10
     
     Declare, instantiate, initialize and use multi-dimensional arrays
+    JavaArrayDemos.java \ lines 39-44
     
     Declare and use an ArrayList of a given type
+    JavaArrayDemos.java \ lines 66 - 87
     
     Search a two-dimensional array and identify the coordinates where a value was found
+    JavaArrayDemos.java \ lines 49-53
     
     Effectively utilize exception handling for user input of an int
     InputValidation.java \ lines 14-23
