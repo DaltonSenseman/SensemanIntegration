@@ -8,7 +8,6 @@
  */
 
 public abstract class Character {
-  RNGSystem Roll = new RNGSystem();
   // fields
   private String firstName;
   private String lastName;
@@ -22,6 +21,14 @@ public abstract class Character {
   private double coinPurse;
 
   // constructor
+  /**
+   *  constructor used to create a character in the game.
+   * @param firstName of character.
+   * @param lastName of character.
+   * @param age of the character.
+   * @param height of character in inches.
+   * @param weight of character in inches.
+   */
   public Character(String firstName, String lastName, int age, int height, int weight) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -88,24 +95,30 @@ public abstract class Character {
     return coinPurse;
   }
 
+  /**
+   * Sets the attack of the player.
+   * @param hitCount  the amount of dice used in the attack.
+   * @param dammageCount the dice size used on each dice.
+   */
   public void setAttack(int hitCount, int dammageCount) {
-    RNGSystem.setRoll(1, 20);
-    int baseRoll = RNGSystem.getRoll();
+    RngSystem.setRoll(1, 20);
+    int baseRoll = RngSystem.getRoll();
     if (baseRoll > 0 && baseRoll < 20) {
-      RNGSystem.setRoll(hitCount, dammageCount);
-      attack = RNGSystem.getRoll();
+      RngSystem.setRoll(hitCount, dammageCount);
+      attack = RngSystem.getRoll();
       System.out.println("You hit for: " + getAttack());
     } else if (baseRoll == 20) {
       System.out.println("Critical hit!");
-      RNGSystem.setRoll(hitCount, dammageCount);
+      RngSystem.setRoll(hitCount, dammageCount);
       System.out.println("You hit for: " + (int) Math.pow(getAttack(), 2.5));
       /*
        * I have the power going to the 2.5 so to make sure the number is a int I used casting to
        * force it back into a int truncating the remaining decimal so HP is decreased in whole
        * numbers while having the possibility of extra damage to be added to the damage roll
        */
-    } else
-      System.out.println("You have Missed!");;
+    } else {
+      System.out.println("You have Missed!");
+    }
   }
 
   public int getAttack() {

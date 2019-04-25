@@ -12,6 +12,10 @@ import java.util.Scanner;
 
 public class Main {
 
+  /**
+   * Main driver of the program.
+   * @param args convention name for the main driver
+   */
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
 

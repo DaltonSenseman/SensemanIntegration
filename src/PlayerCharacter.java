@@ -23,7 +23,7 @@ public class PlayerCharacter extends Character {
   // methods
   public void setCoinPurse(double coins, int gold) {
     coinPurse += coins;
-    gold += gold;
+    coinPurse += gold;
   }
 
   public double getGoldPurse() {

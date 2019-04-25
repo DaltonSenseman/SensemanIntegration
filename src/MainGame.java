@@ -8,12 +8,20 @@
 import java.util.Scanner;
 
 public class MainGame {
-  public static void GameStart(Scanner input) {
-    final String STARTLOCATION = "unknown sandy beach";
+  /**  
+   * Starts and drives the game section of this program from the main menu.
+   * @param input passes the scanner to be used in the method.
+   */
+  public static void gameStart(Scanner input) {
+    /*
+     * CheckStyle marks this final as improper but final conventions in java 
+     * states to have it is to CAPLOCKED.
+     */
+    final String STARTLOCATION = "unknown sandy beach"; 
     boolean finalCharacterAccept = false;
     do {
-      String characterArray[] = playercreationPart1(input);
-      int characterStatArray[] = playercreationPart2(input);
+      String[] characterArray = playercreationPart1(input);
+      int[] characterStatArray = playercreationPart2(input);
 
       PlayerCharacter mainCharacter = new PlayerCharacter(characterArray[0], characterArray[1],
           characterStatArray[0], characterStatArray[1], characterStatArray[2]);
@@ -26,10 +34,10 @@ public class MainGame {
       char responceToCharacter = InputValidation.getGoodCharValue(input);
       if (responceToCharacter == 'Y') { // tests to see if user accepts to exit loop
         finalCharacterAccept = true;
-      } else
+      } else {
         finalCharacterAccept = false;
-      System.out.println("Charater Created!");
-
+        System.out.println("Charater Created!");
+      }
       String gameWelcomeMessage = "You wake up on a " + STARTLOCATION + " the sun bakeing your "
           + "skin, as you "
           + "look around you notice a sword pointing at your chest. The gruff figure bellows in "
@@ -50,8 +58,9 @@ public class MainGame {
           enemyHealth -= mainCharacter.getAttack();
 
         } while (enemyHealth >= 0);
-      } else
+      } else {
         System.exit(0);
+      }
       System.out.println("With your fast thinking you manage to catch the man off guard"
           + ", with a kick you knock down them into the sandy beach sand and pummel them.");
       System.out.println("You stand up and look around at your surroundings before you go "
@@ -61,22 +70,29 @@ public class MainGame {
       System.out.println("|__________|_______________|");
       menuActionSelection = InputValidation.getGoodPositiveInt(input);
       if (menuActionSelection == 1) {
-        RNGSystem.setRoll(1, 20);
-        if (RNGSystem.getRoll() > 7) {
+        RngSystem.setRoll(1, 20);
+        if (RngSystem.getRoll() > 7) {
           mainCharacter.setCoinPurse(10.5);
           System.out.println("You found 10 silver and 5 copper coins!");
-        } else
+        } else {
           System.out.println("You found nothing.....");
-      } else
+        }
+      } else {
         System.out.println("You look around to see were you can go.");
-      System.out.println("You look around to see were you can go.");
+        System.out.println("You look around to see were you can go.");
 
-      break;
+        break;
+      }
     } while (finalCharacterAccept == false);
   }
 
+  /**
+   * Part 1 of the character creation to gather user input and pass it to the player constructor.
+   * @param input passes the scanner into this method to be used.
+   * @return the character array after being validated as good input is passed to the constructor.
+   */
   public static String[] playercreationPart1(Scanner input) {
-    String characterArray[] = new String[2];
+    String[] characterArray = new String[2];
     System.out.println("Enter your first Name:");
     characterArray[0] = InputValidation.getGoodStringValue(input);
     System.out.println("Enter your last Name:");
@@ -84,8 +100,13 @@ public class MainGame {
     return characterArray;
   }
 
+  /**
+   * Part 2 of the character creation to gather user input and pass it to the player constructor.
+   * @param input passes the scanner into this method to be used.
+   * @return the character array after being validated as good input is passed to the constructor.
+   */
   public static int[] playercreationPart2(Scanner input) {
-    int characterStatArray[] = new int[3];
+    int[] characterStatArray = new int[3];
     System.out.println("Enter your age:");
     characterStatArray[0] = InputValidation.getGoodPositiveInt(input);
     System.out.println("Enter your height in inches:");

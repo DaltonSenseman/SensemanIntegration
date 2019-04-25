@@ -8,6 +8,9 @@
 import java.util.Scanner;
 
 public class JavaDemos {
+  /**
+   * Prints the java menu of the program.
+   */
   public static void javaDemoMenu() {
     System.out.println("\t _____________________ ");
     System.out.println("\t|      Java MENU      |");
@@ -20,7 +23,11 @@ public class JavaDemos {
     System.out.println("\t|_____________________|");
   }
 
-  public static void JavaDemoMenuSelection(Scanner input) {
+  /**
+   *  Menu selection for the java menu so the user can make a selection.
+   * @param input passes the scanner into the method to be used.
+   */
+  public static void javaDemoMenuSelection(Scanner input) {
     int javaMenuSelection = 0;
     while (javaMenuSelection <= 0 || javaMenuSelection > 5) {
       javaMenuSelection = InputValidation.getGoodPositiveInt(input);
@@ -34,19 +41,19 @@ public class JavaDemos {
           javaStringDemo();
           javaMenuSelection = 0;
           javaDemoMenu();
-          continue;
+          break;
         case 2:
           System.out.println("Loading Java information demo.");
           javaInformationlist();
           javaMenuSelection = 0;
           javaDemoMenu();
-          continue;
+          break;
         case 3:
           System.out.println("Loading Operator demo.");
           javaOperatorDemo();
           javaMenuSelection = 0;
           javaDemoMenu();
-          continue;
+          break;
         case 4:
           System.out.println("Loading Array Sorting demo.");
           JavaArrayDemos.arraySumDemo();
@@ -55,7 +62,7 @@ public class JavaDemos {
           JavaArrayDemos.arrayListDemo();
           javaMenuSelection = 0;
           javaDemoMenu();
-          continue;
+          break;
         case 5:
           char menuTerminationValue = 'N';
           while (menuTerminationValue != 'Y') {
@@ -69,7 +76,11 @@ public class JavaDemos {
               break;
             }
           }
-
+          break;
+        default:
+          javaDemoMenu();
+          javaMenuSelection = 0;
+          break;
       }
     }
   }
@@ -116,6 +127,9 @@ public class JavaDemos {
     System.out.println("");
   }
 
+  /**
+   * Prints the java information list on data types.
+   */
   public static void javaInformationlist() {
     System.out.print(" _____________________________________________________________________");
     System.out.println("____________________________________________________________________");
@@ -150,6 +164,9 @@ public class JavaDemos {
     System.out.println("");
   }
 
+  /**
+   * Prints the java operator demo showing the basic operators of java. 
+   */
   public static void javaOperatorDemo() {
     System.out.println("In Java you can use many different operators!");
     System.out.println("Such as basic math operators.");

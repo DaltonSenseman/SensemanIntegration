@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 public class InputValidation {
 
+  /**
+   * Gets a good integer from the user that will not cause an exception on bad input.
+   * @param input passes the scanner into the method.
+   * @return returns the selected input of the user as long as it is acceptable.
+   */
   public static int getGoodPositiveInt(Scanner input) {
     int inputSelection = 0;
     try {
@@ -22,6 +27,11 @@ public class InputValidation {
     return inputSelection;
   }
 
+  /**
+   * Gets a good char value from the user that will not cause an exception on bad input.
+   * @param input passes the scanner into the method.
+   * @return returns the selected input of the user as long as it is acceptable.
+   */
   public static char getGoodCharValue(Scanner input) {
     String inputSelection = " ";
     try {
@@ -35,6 +45,11 @@ public class InputValidation {
     return inputSelctionfinal;
   }
 
+  /** 
+   *  Gets a good String value from the user that will not cause a exception on bad input.
+   * @param input passes the scanner into the method.
+   * @return returns the selected input of the user as long as it is acceptable. 
+   */
   public static String getGoodStringValue(Scanner input) {
     String inputSelection = " ";
     try {

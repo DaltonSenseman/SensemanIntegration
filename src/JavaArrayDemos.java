@@ -10,10 +10,13 @@ import java.util.ArrayList;
 
 public class JavaArrayDemos {
 
+  /**
+   * Prints the array demo showing how a accumulator works.
+   */
   public static void arraySumDemo() {
-    System.out.println("We can use arrays to crate a runnign total by useing a accumulator, "
+    System.out.println("We can use arrays to create a running total by useing an accumulator, "
         + "to keep a grand total. In this demo We will take the first 10 even numbers from 0-20"
-        + " and add them useing this method we should see 110 as the result.");
+        + " and add them, useing this method we should see 110 as the result.");
     int[] arraySumNumbers = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
     int accumulator = 0;
     for (int i : arraySumNumbers) {
@@ -22,6 +25,9 @@ public class JavaArrayDemos {
     System.out.println("The total sum of the even array is indeed " + accumulator + ".");
   }
 
+  /**
+   * Prints the array demo showing how to search a array manually to find the smallest value. 
+   */
   public static void arraySmallestValue() {
     System.out.println("We can also use arrays to sort and find values shuch as the smallest or "
         + "greatest number in the array set.");
@@ -44,6 +50,11 @@ public class JavaArrayDemos {
     }
   }
 
+  /**
+   * <p>Prints the array demo showing how a 2d array works and how you can find the location of the
+   * value inside it and print out its coordinates. 
+   * </p> 
+   */
   public static void array2dDemo() {
     int[][] twoDArray = new int[2][4];
     for (int i = 0; i < twoDArray.length; i++) {
@@ -63,6 +74,9 @@ public class JavaArrayDemos {
     }
   }
 
+  /**
+   * Prints the array demo to show off how arraylists can be mutated and used to find values.
+   */
   public static void arrayListDemo() {
     System.out.println("We can also use the newer version of Arrays to do the same things, "
         + "this is an ArrayList in java. It has all the same features of an array but, unlike"
@@ -79,9 +93,7 @@ public class JavaArrayDemos {
     for (double i : demoList) {
       if (smallest > i) {
         smallest = i;
-      } else {
-        continue;
-      }
+      } 
     }
     System.out.println("The smallest value in the ArrayList was: " + smallest);
   }

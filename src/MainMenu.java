@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 public class MainMenu {
 
+  /**
+   * Prints the main menu of the game.
+   */
   public static void mainMenu() {
     System.out.println("    Welcome to: Tales of the High Seas");
     System.out.println("       an RPG game coded in Java!");
@@ -25,6 +28,10 @@ public class MainMenu {
     System.out.println("\t|_____________________|");
   }
 
+  /**
+   * Switch to allow the user to make a selection on the Mainmenu printed before it.
+   * @param input passes the Scanner into the method to be used in the selection.
+   */
   public static void mainMenuSelection(Scanner input) {
     int gameMenuSelection = 0;
     while (gameMenuSelection <= 0 || gameMenuSelection > 5) {
@@ -36,25 +43,25 @@ public class MainMenu {
       switch (gameMenuSelection) {
         case 1:
           System.out.println("Game Start");
-          MainGame.GameStart(input);
+          MainGame.gameStart(input);
           break;
         case 2:
-          System.out.println("Game loading not implemented yet.");
+          System.out.println("Game loading is not implemented yet.");
           mainMenu();
           gameMenuSelection = 0;
-          continue; // lets the loop continue after this case is finished working.
+          break; // lets the loop continue after this case is finished working.
         case 3:
-          System.out.println("Settings implemented yet.");
+          System.out.println("Settings are not implemented yet.");
           mainMenu();
           gameMenuSelection = 0;
-          continue;
+          break;
         case 4:
           System.out.println("Launching Java Demos.");
           JavaDemos.javaDemoMenu();
-          JavaDemos.JavaDemoMenuSelection(input);
+          JavaDemos.javaDemoMenuSelection(input);
           mainMenu();
           gameMenuSelection = 0;
-          continue;
+          break;
         case 5:
           char terminationValue = 'N';
           while (terminationValue != 'Y') {
@@ -68,7 +75,11 @@ public class MainMenu {
           }
           mainMenu();
           gameMenuSelection = 0;
-          continue;
+          break;
+        default:
+          mainMenu();
+          gameMenuSelection = 0;
+          break;
       }
     }
   }
